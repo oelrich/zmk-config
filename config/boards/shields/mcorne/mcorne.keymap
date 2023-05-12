@@ -99,9 +99,9 @@
 //                    | CTL | LWR | SPC |   | ENT | RSE  | GUI/DEL |
                         bindings = <
    &se_tilde    &kp Q &kp W &kp F &kp P &kp B        &kp J &kp L  &kp U     &kp Y   &kp UNDER &kp EQUAL
-   &tu LALT ESC &kp A &kp R &kp S &kp T &kp G        &kp M &kp N  &kp E     &kp I   &kp O     &kp LT
-   &ht LSFT GT  &kp Z &kp X &kp C &kp D &kp V        &kp K &kp H  &kp COMMA &kp DOT &kp FSLH  &kp RSFT 
-           &kp LCTRL &ly 1 TAB &tu LSFT SPACE        &ly 3 RET &ly 2 BSPC &tu LGUI DEL
+   &tu LCTRL ESC &kp A &kp R &kp S &kp T &kp G        &kp M &kp N  &kp E     &kp I   &kp O     &kp RET
+   &ht LALT GT  &kp Z &kp X &kp C &kp D &kp V        &kp K &kp H  &kp COMMA &kp DOT &kp FSLH  &kp RALT 
+           &kp BSPC &kp LSFT &ly 1 DEL        &ly 2 ESC &kp SPACE &ly 3 TAB
                         >;
                 };
 
