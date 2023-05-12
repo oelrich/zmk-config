@@ -1,0 +1,11 @@
+file_format: "1"
+id: mcorne
+name: MCorne
+type: shield
+url: https://github.com/mali1741/zmk-config-mcorne.git
+requires: [seeeduino_xiao_ble]
+features:
+  - keys
+siblings:
+  - mcorne_left
+  - mcorne_right

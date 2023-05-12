@@ -14,6 +14,6 @@
 ---
 include:
   - board: seeeduino_xiao_ble
-    shield: corne_left
+    shield: mcorne_left
   - board: seeeduino_xiao_ble
-    shield: corne_right
+    shield: mcorne_right
