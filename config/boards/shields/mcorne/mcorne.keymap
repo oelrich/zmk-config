@@ -8,6 +8,14 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 
+#define L_BASE 0
+#define L_SYMB 1
+#define L_CODE 2
+#define L_FNCT 3
+#define L_MOVE 4
+#define L_CNTR 5
+#define L_KBRD 6
+
 / {
     macros {
 
@@ -28,7 +36,13 @@
         tap-ms = <40>;
         bindings = <&kp LS(RBKT) &kp SPACE>;
     )
- 
+    
+    ZMK_MACRO(pr_stats,
+        wait-ms = <30>;
+        tap-ms = <40>;
+        bindings = <&kp H &kp E &kp L &kp L &kp O>;
+    )
+
     };
     behaviors {
         tu: hold_tap_repeat {
@@ -85,137 +99,71 @@
             tapping-term-ms = <200>;
             bindings = <&kp F10>, <&kp F11>, <&kp F12>;
         };
-
-        
     };
-    keymap {
-                compatible = "zmk,keymap";
+keymap { compatible = "zmk,keymap";
+base_layer { bindings = <
+// L_BASE
+/*
+#define L_SYMB 1 x
+#define L_CODE 2 x
+#define L_FNCT 3 o
+#define L_MOVE 4 x
+#define L_CNTR 5 x
+#define L_KBRD 6
+*/
 
-                default_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  Ö  |  Å   |
-// | ALTE |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |  Ä   |
-// | SH/: |  Z  |  X  |  C  |  V  |  B  |   |  K  |  H   |  ,  |  .  |  -  | SH/' |
-//                    | CTL | LWR | SPC |   | ENT | RSE  | GUI/DEL |
-                        bindings = <
-   &se_tilde    &kp Q &kp W &kp F &kp P &kp B        &kp J &kp L  &kp U     &kp Y   &kp UNDER &kp EQUAL
-   &tu LCTRL ESC &kp A &kp R &kp S &kp T &kp G        &kp M &kp N  &kp E     &kp I   &kp O     &kp RET
-   &ht LALT GT  &kp Z &kp X &kp C &kp D &kp V        &kp K &kp H  &kp COMMA &kp DOT &kp FSLH  &kp RALT 
-           &kp BSPC &kp LSFT &ly 1 DEL        &ly 2 ESC &kp SPACE &ly 3 TAB
-                        >;
-                };
+&kp LGUI   &to L_FNCT  &kp C     &kp LBRC  &kp V     &kp Z               &kp X           &kp J      &kp P  &kp APOS  &kp Q   &to L_CNTR
+&kp LCTRL  &kp A       &kp T     &kp N     &kp R     &kp B               &kp Y           &kp O      &kp S  &kp I     &kp O   &kp RET
+&kp LALT   &kp D       &kp M     &kp U     &kp K     &kp W               &kp SEMI        &kp G      &kp F  &kp H     &kp L   &kp RALT 
+                                 &kp BSPC  &kp LSFT  &ly L_CODE DEL      &ly L_SYMB ESC  &kp SPACE  &ly L_MOVE TAB
+>;};
+symbol_layer { bindings = <
+// L_SYMB
 
-                lower_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-//                    | CTL |     | SPC |   | ENT |     | ALT |
-                        bindings = <
-   &se_tick       &kp F1       &kp F2       &kp F3       &kp F4       &kp F5         &kp F6   &kp F7   &kp F8    &kp F9       &tdfn     &kp PLUS
-   &tu LALT N0    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8    &kp N9       &kp N0    &kp MINUS
-   &ht LSFT LT    &kp N0       &trans       &trans       &trans       &trans         &kp HASH  &none   &kp SQT   &kp LBKT     &kp SEMI &kp QMARK
-                                            &kp LCTRL    &trans       &trans         &trans   &trans   &kp RCTRL
-                        >;
-                };
+&trans  &kp EQUAL   &kp RA(N7)  &kp LS(N8)     &kp RA(N8)    &kp LS(RBRC)       &kp RA(RBRC)  &kp RA(N9)  &kp LS(N9)    &kp RA(N0)     &kp LS(EQUAL)  &trans
+&trans  &kp RA(N2)  &kp LS(N0)  &kp MINUS      &kp LS(NUHS)  &kp NUBS           &kp LS(NUBS)  &kp LS(N7)  &kp RA(NUBS)  &kp RA(MINUS)  &kp LS(N6)     &trans
+&trans  &kp NUHS    &kp FSLH    &kp LS(COMMA)  &kp COMMA     &kp LS(MINUS)      &kp EXCL      &kp DOT     &kp LS(DOT)   &kp LS(FSLH)   &kp LS(N2)     &trans
+                                  &trans         &trans        &trans             &trans        &trans      &trans
+>;};
+code_layer {  bindings = <
+// L_CODE
 
-                raise_layer {
-// -----------------------------------------------------------------------------------------
-// | STAB | MUT |  @  |     | PSC | SF5  |   |  ^  |  ´  |  {  |  }  |  \  |  ~   |
-// | ALTE |  !  |  "  |  #  |  $  |  %   |   |  &  |  /  |  (  |  )  |  |  |  =   |
-// | CW   |  Z  |  X  |  C  |  D  |  V   |   |  |  |  `  |  [  |  ]  |  /  |  *   |
-//                    | CTL | LWR | SSPC |   | ENT | RSE | ALT |
-                        bindings = <
-   &se_tilde  &se_tilde         &kp EXCL   &kp RA(N2)   &kp PRCNT  &none         &se_circ    &se_tick   &kp LS(NUHS) &kp MINUS   &kp RA(MINUS) &none
-   &none  &tu LALT ESC      &kp RA(N7) &kp RA(N0)   &kp GT     &kp QMARK     &kp LS(N7)  &kp AT     &kp RA(N8)   &kp RA(N9)  &kp LS(N0)    &none
-   &caps_word  &tu LSFT RA(NUBS) &kp NUBS   &kp LS(NUBS) &kp RA(N4) &kp LS(N6)    &kp HASH    &kp NUHS   &kp LS(N8)   &kp LS(N9)  &kp LT        &none
-                                        &kp LCTRL &trans     &trans           &trans        &trans     &key_repeat
-                        >;
-                };
+&trans  &kp F1    &kp F2         &kp F3     &kp F4      &kp F5         &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &trans
+&trans  &kp N1    &kp N2         &kp N3     &kp N4      &kp N5         &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &trans
+&trans  &kp RBRC  &kp LS(GRAVE)  &kp GRAVE  &kp LS(N5)  &kp PSCRN      &kp LS(N4)  &kp LS(N3)  &kp RA(N4)  &kp RA(N3)  &kp RA(N5)  &trans
+                                 &trans     &trans      &trans         &trans      &trans      &trans
 
-                arrow_layer {
-// -----------------------------------------------------------------------------------------
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |     | LFT | DWN |  UP | RGT |      |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   |     | LFT | DWN |  UP | RGT |      |
-// | SHFT |     |     |     |     |     |   |     | HOM | PGD | PGU | END | RSFT |
-//                    | GUI |     | SPC |   | ENT |     | RPT |
-                        bindings = <
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &kp LC(F5)     &none    &none    &none    &none     &none     &none
-   &kp LALT   &none        &none        &to 4        &kp LC(LS(T)) &to 8          &none    &kp LEFT &kp DOWN &kp UP   &kp RIGHT &kp RSFT
-   &kp LSFT   &trans       &trans       &trans       &trans        &trans         &none    &kp HOME &kp PGDN &kp PGUP &kp END   &kp RSFT
-                                        &kp LCTRL    &kp TAB       &trans         &trans   &kp DEL  &key_repeat
-                        >;
-                };
+>;};
+function_layer { bindings = <
+// L_FNCT
 
-                sweep_layer {
-// -----------------------------------------------------------------------------------------
-// |    |  Q  |  W  |  F  |  P  |  B  |   |  J  |  L   |  U  |  Y  |  ?  |     |
-// |    |  A  |  R  |  S  |  T  |  G  |   |  M  |  N   |  E  |  I  |  O  |     |
-// |    | C/Z |  X  |  C  |  V  |  B  |   |  K  |  H   |  ,  |  .  |  -  |     |
-//                    |   | LWR | SPC |   | ENT | RSE  |     |
-                        bindings = <
-   &none &kp Q       &kp W &kp F &kp P &kp B         &kp J &kp L  &kp U     &kp Y   &kp UNDER     &none
-   &none &tu LALT A  &kp R &kp S &kp T &kp G         &kp M &kp N  &kp E     &kp I   &tu LGUI O    &none
-   &none &tu LSFT Z  &kp X &kp C &kp D &kp V         &kp K &kp H  &kp COMMA &kp DOT &tu RSFT FSLH &none
-             &none   &ly 5 TAB   &tu LCTRL SPACE     &ly 7 RET &ly 6 BSPC &none
-                        >;
-                };
+&trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15          &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &trans
+&trans  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5           &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &trans
+&trans  &kp N1   &kp N2   &kp N3   &kp N4   &kp N5           &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &trans
+                          &trans   &trans   &trans           &trans   &trans   &trans
+>;};
+move_layer { bindings = <
+// L_MOVE
 
-                sweep_lower_layer {
-// -----------------------------------------------------------------------------------------
-// |    | F1  | F2 | F3 |  F4 |  F5 |   | F6 | F7 | F8 |  F9 | F10+ |     |     
-// |    | A/1 |  2 |  3 |   4 |   5 |   |  6 |  7 |  8 |   9 |  0   |     |
-// |    | S-0 |    |    |     |     |   |  # |  ` |  Ä |   Å |  Ö   |     |
-//                 |    | +++ | SPC |   | ENT | RSE |     |
-                        bindings = <
-   &none &kp F1          &kp F2    &kp F3    &kp F4    &kp F5         &kp F6   &kp F7    &kp F8    &kp F9       &tdfn        &none
-   &none &tu LALT N1     &kp N2    &kp N3    &kp N4    &kp N5         &kp N6   &kp N7    &kp N8    &kp N9       &kp N0       &none
-   &none &tu LSFT N0     &none     &none     &none     &none          &kp HASH &kp PLUS  &kp SQT   &kp LBKT     &kp SEMI     &none
-                                   &none     &trans    &trans         &trans   &trans   &none
-                        >;
-                };
+&trans  &none  &none  &none  &none  &none          &none     &kp HOME  &kp UP    &kp END    &none    &trans
+&trans  &none  &none  &none  &none  &none          &kp PGUP  &kp LEFT  &kp DOWN  &kp RIGHT  &kp END  &trans
+&trans  &none  &none  &none  &none  &none          &kp PGDN  &none     &kp PGDN  &none      &none    &trans
+                      &trans &trans &trans         &trans    &trans    &trans
 
-                sweep_raise_layer {
-// -----------------------------------------------------------------------------------------
-// |    |  ~    |  !  |  @  |  %  |     |   |  ^  |  `  |  *  |  +  |  \  |     |
-// |    | A/ESC |  {  |  }  |  :  |  _  |   |  /  |  "  |  [  |  ]  |  =  |     |
-// |    | S/|   |  <  |  >  |  $  |  &  |   |  #  |  '  |  (  |  )  |  ;  |     |
-//                   |     | LWR | SSPC |   | ENT | RSE |     |
-                        bindings = <
-   &none  &se_tilde         &kp EXCL   &kp RA(N2)   &kp PRCNT  &none         &se_circ    &se_tick   &kp LS(NUHS) &kp MINUS   &kp RA(MINUS) &none
-   &none  &tu LALT ESC      &kp RA(N7) &kp RA(N0)   &kp GT     &kp QMARK     &kp LS(N7)  &kp AT     &kp RA(N8)   &kp RA(N9)  &kp LS(N0)    &none
-   &none  &tu LSFT RA(NUBS) &kp NUBS   &kp LS(NUBS) &kp RA(N4) &kp LS(N6)    &kp HASH    &kp NUHS   &kp LS(N8)   &kp LS(N9)  &kp LT        &none
-                                       &none        &trans     &trans        &kp DEL     &trans   &none
-                        >;
-                };
+>; };
+control_layer { bindings = <
+// L_CNTR                       
 
-                sweep_arrow_layer {
-// -----------------------------------------------------------------------------------------
-// |    | MAL | MAP | C-F | PSCR | S-F5 |   |     | M-L | M-D | M-U | M-R |     |
-// |    | A/A | M-2 | M-3 | M-1  | MAA  |   |  /  | LFT | DWN | UP  | RGT |     |
-// |    | S/Z |  X  |  C  |  D   |  V   |   |  #  | HOM | PGD | PGU | END |     |
-//                  |     | CTRL | SPC  |   | +++ | DEL |     |
-                        bindings = <
-   &none &none      &none        &kp RC(F)    &kp PSCRN     &kp LS(F5)     &none      &none    &none    &none     &none     &to 0
-   &none &kp LALT   &none        &none        &none         &none          &kp LS(N7) &kp LEFT &kp DOWN &kp UP    &kp RIGHT &none     
-   &none &trans     &trans       &trans       &trans        &trans         &kp HASH   &kp HOME &kp PGDN &kp PGUP  &kp END   &none  
-                                     &none    &trans        &trans         &trans     &kp DEL &none
-                        >;
-                };
+&trans  &none  &none  &none   &none   &none      &none   &none   &none  &none  &to L_KBRD  &to L_BASE
+&trans  &none  &none  &none   &none   &none      &none   &none   &none  &none  &none       &trans
+&trans  &none  &none  &none   &none   &none      &none   &none   &none  &none  &none       &trans
+                      &trans  &trans  &trans     &trans  &trans  &trans
+>;};
+keyboard_layer { bindings = <
+// L_KBRD
 
-                gaming_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-                        bindings = <
-   &tdte     &kp Q &kp W &kp E &kp R   &ht T RET  &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT
-   &kp GRAVE &kp A &kp S &kp D &kp F   &ht B G    &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSFT  &kp Z &kp X &kp C &ht N H &kp V      &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp RSFT
-                   &kp LCTRL &kp SPACE &kp SPACE  &to 0 &kp BSPC &kp DEL
-                        >;
-                };
-    };
-};
-
+&trans  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4          &bt BT_CLR  &none   &none  &none  &none  &to L_BASE
+&trans  &none        &none        &none        &none        &none                 &none       &none   &none  &none  &none  &trans
+&trans  &none        &none        &none        &none        &pr_stats             &none       &none   &none  &none  &none  &trans
+                                  &trans       &trans       &trans                &trans      &trans  &trans
+>; }; }; };
