@@ -90,9 +90,9 @@ base_layer { bindings = <
 #define L_KBRD 6
 */
 
-&kp LGUI   &ly L_FNCT CAPS  &kp C     &kp LBKT  &kp V     &kp Z               &kp X           &kp J      &kp P  &kp APOS  &kp Q   &ly L_KBRD K_MUTE
-&kp LCTRL  &kp A            &kp T     &kp N     &kp R     &kp B               &kp Y           &kp O      &kp S  &kp I     &kp O   &kp RET
-&kp LALT   &kp D            &kp M     &kp U     &kp K     &kp W               &kp SEMI        &kp G      &kp F  &kp H     &kp L   &kp RALT 
+&kp LGUI   &ly L_FNCT CAPS  &kp C     &kp LBKT  &kp V     &kp Z               &kp X           &kp J      &kp P  &kp APOS  &kp Q   &ly L_KBRD C_MUTE
+&kp LCTRL  &kp A            &kp T     &kp N     &kp R     &kp B               &kp Y           &kp O      &kp S  &kp I     &kp E   &kp RALT
+&kp LALT   &kp D            &kp M     &kp U     &kp K     &kp W               &kp SEMI        &kp G      &kp F  &kp H     &kp L   &kp RET 
                                       &kp BSPC  &kp LSFT  &ly L_CODE DEL      &ly L_SYMB ESC  &kp SPACE  &ly L_MOVE TAB
 >;};
 symbol_layer { bindings = <
@@ -115,7 +115,7 @@ code_layer {  bindings = <
 function_layer { bindings = <
 // L_FNCT
 
-&trans  &trans   &kp K_UNDO  &kp K_REDO  &kp K_VOL_UP  &kp K_VOL_DN          &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp K_PREV  &kp K_PP  &trans
+&trans  &trans   &kp K_UNDO  &kp K_REDO  &kp C_VOL_UP  &kp C_VOL_DN          &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp C_PREV  &kp C_PP  &trans
 &trans  &kp F1   &kp F2      &kp F3      &kp F4        &kp F5                &kp F6     &kp F7      &kp F8       &kp F9      &kp F10   &trans
 &trans  &kp F11  &kp F12     &kp F13     &kp F14       &kp F15               &kp F16    &kp F17     &kp F18      &kp F19     &kp F20   &trans
                              &trans      &trans        &trans                &trans     &trans      &trans
