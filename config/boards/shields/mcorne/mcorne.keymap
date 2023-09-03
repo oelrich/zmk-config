@@ -91,9 +91,9 @@ base_layer { bindings = <
 */
 
 &kp LGUI   &ly L_FNCT CAPS  &kp C     &kp LBKT  &kp V     &kp Z               &kp X           &kp J      &kp P  &kp APOS  &kp Q   &ly L_KBRD K_MUTE
-&kp LCTRL  &kp A       &kp T     &kp N     &kp R     &kp B               &kp Y           &kp O      &kp S  &kp I     &kp O   &kp RET
-&kp LALT   &kp D       &kp M     &kp U     &kp K     &kp W               &kp SEMI        &kp G      &kp F  &kp H     &kp L   &kp RALT 
-                                 &kp BSPC  &kp LSFT  &ly L_CODE DEL      &ly L_SYMB ESC  &kp SPACE  &ly L_MOVE TAB
+&kp LCTRL  &kp A            &kp T     &kp N     &kp R     &kp B               &kp Y           &kp O      &kp S  &kp I     &kp O   &kp RET
+&kp LALT   &kp D            &kp M     &kp U     &kp K     &kp W               &kp SEMI        &kp G      &kp F  &kp H     &kp L   &kp RALT 
+                                      &kp BSPC  &kp LSFT  &ly L_CODE DEL      &ly L_SYMB ESC  &kp SPACE  &ly L_MOVE TAB
 >;};
 symbol_layer { bindings = <
 // L_SYMB
@@ -101,7 +101,7 @@ symbol_layer { bindings = <
 &trans  &kp EQUAL   &kp RA(N7)  &kp LS(N8)     &kp RA(N8)    &kp LS(RBRC)       &kp RA(RBRC)  &kp RA(N9)  &kp LS(N9)    &kp RA(N0)     &kp LS(EQUAL)  &trans
 &trans  &kp RA(N2)  &kp LS(N0)  &kp MINUS      &kp LS(NUHS)  &kp NUBS           &kp LS(NUBS)  &kp LS(N7)  &kp RA(NUBS)  &kp RA(MINUS)  &kp LS(N6)     &trans
 &trans  &kp NUHS    &kp FSLH    &kp LS(COMMA)  &kp COMMA     &kp LS(MINUS)      &kp EXCL      &kp DOT     &kp LS(DOT)   &kp LS(FSLH)   &kp LS(N2)     &trans
-                                  &trans         &trans        &trans             &trans        &trans      &trans
+                                &trans         &trans        &trans             &trans        &trans      &trans
 >;};
 code_layer {  bindings = <
 // L_CODE
@@ -115,10 +115,10 @@ code_layer {  bindings = <
 function_layer { bindings = <
 // L_FNCT
 
-&trans  &trans  &K_UNDO  &K_REDO  &K_VOL_UP  &K_VOL_DN          &K_CUT  &K_COPY  &K_PASTE  &K_PREV  &K_PP  &trans
-&trans  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5           &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &trans
-&trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15          &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &trans
-                          &trans   &trans   &trans           &trans   &trans   &trans
+&trans  &trans   &kp K_UNDO  &kp K_REDO  &kp K_VOL_UP  &kp K_VOL_DN          &kp K_CUT  &kp K_COPY  &kp K_PASTE  &kp K_PREV  &kp K_PP  &trans
+&trans  &kp F1   &kp F2      &kp F3      &kp F4        &kp F5                &kp F6     &kp F7      &kp F8       &kp F9      &kp F10   &trans
+&trans  &kp F11  &kp F12     &kp F13     &kp F14       &kp F15               &kp F16    &kp F17     &kp F18      &kp F19     &kp F20   &trans
+                             &trans      &trans        &trans                &trans     &trans      &trans
 >;};
 move_layer { bindings = <
 // L_MOVE
