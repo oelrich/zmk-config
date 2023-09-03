@@ -90,7 +90,7 @@ base_layer { bindings = <
 #define L_KBRD 6
 */
 
-&kp LGUI   &to L_FNCT  &kp C     &kp LBRC  &kp V     &kp Z               &kp X           &kp J      &kp P  &kp APOS  &kp Q   &to L_CNTR
+&kp LGUI   &to L_FNCT  &kp C     &kp LBKT  &kp V     &kp Z               &kp X           &kp J      &kp P  &kp APOS  &kp Q   &to L_CNTR
 &kp LCTRL  &kp A       &kp T     &kp N     &kp R     &kp B               &kp Y           &kp O      &kp S  &kp I     &kp O   &kp RET
 &kp LALT   &kp D       &kp M     &kp U     &kp K     &kp W               &kp SEMI        &kp G      &kp F  &kp H     &kp L   &kp RALT 
                                  &kp BSPC  &kp LSFT  &ly L_CODE DEL      &ly L_SYMB ESC  &kp SPACE  &ly L_MOVE TAB
