@@ -90,7 +90,7 @@ base_layer { bindings = <
 #define L_KBRD 6
 */
 
-&kp LGUI   &to L_FNCT  &kp C     &kp LBKT  &kp V     &kp Z               &kp X           &kp J      &kp P  &kp APOS  &kp Q   &to L_CNTR
+&kp LGUI   &ly L_FNCT CAPS  &kp C     &kp LBKT  &kp V     &kp Z               &kp X           &kp J      &kp P  &kp APOS  &kp Q   &ly L_KBRD K_MUTE
 &kp LCTRL  &kp A       &kp T     &kp N     &kp R     &kp B               &kp Y           &kp O      &kp S  &kp I     &kp O   &kp RET
 &kp LALT   &kp D       &kp M     &kp U     &kp K     &kp W               &kp SEMI        &kp G      &kp F  &kp H     &kp L   &kp RALT 
                                  &kp BSPC  &kp LSFT  &ly L_CODE DEL      &ly L_SYMB ESC  &kp SPACE  &ly L_MOVE TAB
@@ -115,9 +115,9 @@ code_layer {  bindings = <
 function_layer { bindings = <
 // L_FNCT
 
-&trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15          &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &trans
+&trans  &trans  &K_UNDO  &K_REDO  &K_VOL_UP  &K_VOL_DN          &K_CUT  &K_COPY  &K_PASTE  &K_PREV  &K_PP  &trans
 &trans  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5           &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &trans
-&trans  &kp N1   &kp N2   &kp N3   &kp N4   &kp N5           &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &trans
+&trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15          &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &trans
                           &trans   &trans   &trans           &trans   &trans   &trans
 >;};
 move_layer { bindings = <
@@ -140,7 +140,7 @@ control_layer { bindings = <
 keyboard_layer { bindings = <
 // L_KBRD
 
-&trans  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4          &bt BT_CLR  &none   &none  &none  &none  &to L_BASE
+&trans  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4          &bt BT_CLR  &none   &none  &none  &none  &trans
 &trans  &none        &none        &none        &none        &none                 &none       &none   &none  &none  &none  &trans
 &trans  &none        &none        &none        &none        &pr_stats             &none       &none   &none  &none  &none  &trans
                                   &trans       &trans       &trans                &trans      &trans  &trans
