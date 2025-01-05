@@ -118,4 +118,4 @@ move_layer { bindings = <
 &trans  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4      &kp PGDN  &none     &kp PGDN  &none      &trans   &none
                                       &trans         &trans         &trans             &trans    &trans    &trans
 
->;};
+>;};};};
