@@ -10,9 +10,8 @@
 
 #define L_BASE 0
 #define L_SYMB 1
-#define L_CODE 2
-#define L_FNCT 3
-#define L_MOVE 4
+#define L_NUMB 2
+#define L_MOVE 3
 
 / {
     macros {
@@ -80,42 +79,32 @@ keymap { compatible = "zmk,keymap";
 base_layer { bindings = <
 // L_BASE
 
-&kp LALT   &kp Q    &kp W   &kp E     &kp R     &kp T               &kp Y   &kp U   &kp I      &kp O       &kp P             &kp LBKT
-&kp LGUI   &kp A    &kp S   &kp D     &kp F     &kp G               &kp H   &kp J   &kp K      &kp L       &kp SEMI          &kp APOS
-&kp LCTRL  &kp Z    &kp X   &kp C     &kp V     &kp B               &kp N   &kp M   &kp COMMA  &kp PERIOD  &ly L_MOVE MINUS  &kp RET
-                            &kp BSPC  &kp LSFT  &ly L_CODE DEL      &ly L_SYMB ESC  &kp SPACE  &ly L_FNCT TAB
+&kp LALT   &kp Q    &kp W   &kp E     &kp R     &kp T               &kp Y   &kp U   &kp I      &kp O       &kp P     &kp LBKT
+&kp LGUI   &kp A    &kp S   &kp D     &kp F     &kp G               &kp H   &kp J   &kp K      &kp L       &kp SEMI  &kp APOS
+&kp LCTRL  &kp Z    &kp X   &kp C     &kp V     &kp B               &kp N   &kp M   &kp COMMA  &kp PERIOD  &kp FSLH  &kp RET
+                            &kp BSPC  &kp LSFT  &ly L_NUMB DEL      &ly L_SYMB ESC  &kp SPACE  &ly L_MOVE TAB
 >;};
 symbol_layer { bindings = <
 // L_SYMB
 
-&trans  &kp EQUAL   &kp RA(N7)  &kp LS(N8)     &kp RA(N8)    &kp LS(RBRC)       &kp RA(RBRC)  &kp RA(N9)  &kp LS(N9)    &kp RA(N0)     &kp LS(EQUAL)  &none
-&trans  &kp RA(N2)  &kp LS(N0)  &kp MINUS      &kp LS(NUHS)  &kp NUBS           &kp LS(NUBS)  &kp LS(N7)  &kp RA(NUBS)  &kp RA(MINUS)  &kp LS(N6)     &none
-&trans  &kp NUHS    &kp FSLH    &kp LS(COMMA)  &kp COMMA     &kp LS(MINUS)      &kp EXCL      &kp DOT     &kp LS(DOT)   &kp LS(FSLH)   &kp LS(N2)     &none
+&trans  &kp EQUAL   &kp RA(N7)  &kp LS(N8)     &kp RA(N8)    &kp LS(RBRC)       &kp RA(RBRC)  &kp RA(N9)  &kp LS(N9)    &kp RA(N0)     &kp LS(EQUAL)  &kp CARET
+&trans  &kp RA(N2)  &kp LS(N0)  &kp MINUS      &kp LS(NUHS)  &kp NUBS           &kp LS(NUBS)  &kp LS(N7)  &kp RA(NUBS)  &kp RA(MINUS)  &kp LS(N6)     &kp POUND
+&trans  &kp NUHS    &kp FSLH    &kp LS(COMMA)  &kp COMMA     &kp LS(MINUS)      &kp EXCL      &kp DOT     &kp LS(DOT)   &kp LS(FSLH)   &kp LS(N2)     &kp GRAVE
                                 &trans         &trans        &trans             &trans        &trans      &trans
 >;};
-code_layer {  bindings = <
-// L_CODE
+number_layer { bindings = <
+// L_NUMB
 
-&trans  &kp F1    &kp F2         &kp F3     &kp F4      &kp F5         &kp F6      &kp F7      &kp F8      &kp F9      &kp F10     &none
-&trans  &kp N1    &kp N2         &kp N3     &kp N4      &kp N5         &kp N6      &kp N7      &kp N8      &kp N9      &kp N0      &none
-&trans  &kp RBRC  &kp LS(GRAVE)  &kp GRAVE  &kp LS(N5)  &kp PSCRN      &kp LS(N4)  &kp LS(N3)  &kp RA(N4)  &kp RA(N3)  &kp RA(N5)  &none
-                                 &trans     &trans      &trans         &trans      &trans      &trans
-
->;};
-function_layer { bindings = <
-// L_FNCT
-
-&trans  &none    &kp K_UNDO  &kp K_REDO  &kp C_VOL_UP  &kp C_VOL_DN          &kp C_VOL_UP  &kp C_VOL_DN   &kp K_PASTE  &kp C_PREV  &kp C_PP  &kp C_MUTE
-&trans  &kp F1   &kp F2      &kp F3      &kp F4        &kp F5                &kp F6     &kp F7      &kp F8       &kp F9      &kp F10   &kp C_VOL_UP
-&trans  &kp F11  &kp F12     &kp F13     &kp F14       &kp F15               &kp F16    &kp F17     &kp F18      &kp F19     &kp F20   &kp C_VOL_DN
-                             &trans      &trans        &trans                &trans     &trans      &trans
+&trans  &kp F11  &kp F12  &kp F13  &kp F14  &kp F15      &kp F16  &kp F17  &kp F18  &kp F19  &kp F20  &kp K_APP
+&trans  &kp N1   &kp N2   &kp N3   &kp N4   &kp N5       &kp N6   &kp N7   &kp N8   &kp N9   &kp N0   &kp LALT
+&trans  &kp F1   &kp F2   &kp F3   &kp F4   &kp F5       &kp F6   &kp F7   &kp F8   &kp F9   &kp F10  &trans
+                          &trans   &trans   &trans       &trans   &trans   &trans
 >;};
 move_layer { bindings = <
 // L_MOVE
 
-&trans  &pr_stats      &bt BT_PRV     &bt BT_NXT     &none          &bt BT_CLR         &none     &kp HOME  &kp UP    &kp END    &none    &none
-&trans  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &kp PGUP  &kp LEFT  &kp DOWN  &kp RIGHT  &kp END  &none
-&trans  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4      &kp PGDN  &none     &kp PGDN  &none      &trans   &none
-                                      &trans         &trans         &trans             &trans    &trans    &trans
-
+&trans  &kb C_PWR      &bt BT_PRV     &bt BT_NXT     &none          &bt BT_CLR         &kp PGUP   &kp HOME         &kp UP      &kp END     &kp C_PREV  &kp C_VOL_UP
+&trans  &bt BT_SEL 0   &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3   &bt BT_SEL 4       &kp PGDN   &kp LEFT         &kp DOWN    &kp RIGHT   &kp C_NEXT  &kp C_VOL_DN
+&trans  &bt BT_DISC 0  &bt BT_DISC 1  &bt BT_DISC 2  &bt BT_DISC 3  &bt BT_DISC 4      &kp PSCRN  &kp PAUSE_BREAK  &kp INSERT  &kp C_STOP  &kp C_PP    &kp C_MUTE
+                                      &trans         &trans         &trans             &trans     &trans    &trans
 >;};};};
