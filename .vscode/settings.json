@@ -19,6 +19,8 @@
     "PSCRN",
     "RALT",
     "RBRC",
-    "SYMB"
+    "SYMB",
+    "ZMK",
+    "zmkfirmware"
   ]
 }
