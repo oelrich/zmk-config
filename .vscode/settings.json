@@ -1,8 +1,12 @@
 {
+  "cSpell.language": "en-GB,sv",
   "cSpell.words": [
     "APOS",
     "BSPC",
+    "CLR",
     "CNTR",
+    "corne",
+    "elt",
     "FNCT",
     "FSLH",
     "KBRD",
@@ -14,11 +18,15 @@
     "LGUI",
     "LSFT",
     "NUHS",
+    "NXT",
     "PGDN",
     "PGUP",
     "PSCRN",
+    "PWR",
     "RALT",
     "RBRC",
+    "SEL",
+    "SLCK",
     "SYMB",
     "ZMK",
     "zmkfirmware"

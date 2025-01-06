@@ -1,0 +1,4 @@
+["Alt", "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P", "Å"]
+["GUI", "A", "S", "D", "F", "G", "H", "J", "K", "L", "Ö", "Ä"]
+["Ctrl", "Z", "X", "C", "V", "B", "N", "M", ",", ".", "-", "Enter"]
+["Bspc", "Space", {"hold": "NUMB", "tap": "Del"}, {"hold": "SYMB", "tap": "Esc"}, {"hold": "Shift", "tap": "App"}, {"hold": "MOVE", "tap": "Tab"}]

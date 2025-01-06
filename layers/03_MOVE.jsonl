@@ -1,0 +1,4 @@
+["Alt", "Power", "ᛒ Prev", "ᛒ Next", "", "ᛒ Clear", "PgUp", "Home", "Up", "End", "Prev", "Vol+"]
+["GUI", "ᛒ 0", "ᛒ 1", "ᛒ 2", "ᛒ 3", "ᛒ 4", "PgDn", "Left", "Down", "Right", "Next", "Vol-"]
+["Ctrl", "ᛒ dis 0", "ᛒ dis 1", "ᛒ dis 2", "ᛒ dis 3", "ᛒ dis 4", "PrScr", "Break", "Ins", "Stop", "Play", "Mute"]
+["Bspc", "Space", {"hold": "NUMB", "tap": "Del"}, {"hold": "SYMB", "tap": "Esc"}, {"hold": "Shift", "tap": "App"}, {"hold": "MOVE", "tap": "Tab"}]
